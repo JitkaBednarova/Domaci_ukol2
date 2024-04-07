@@ -7,6 +7,7 @@ headers = {
     "Content-Type": "application/json",
 }
 data = f'{{"obchodniJmeno": "{nazev}"}}'
+data = data.encode("utf-8")
 response = requests.post("https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/vyhledat", headers=headers, data=data)
 vysledky = response.json()
 celkem_pocet = vysledky["pocetCelkem"]
